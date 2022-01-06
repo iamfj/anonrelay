@@ -2,6 +2,7 @@
   "recommendations": [
     "shakram02.bash-beautify",
     "ms-azuretools.vscode-docker",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "kokororin.vscode-phpfmt"
   ]
 }
