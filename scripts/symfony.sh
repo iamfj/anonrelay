@@ -23,4 +23,4 @@ if [ $( docker ps -a | grep anonrelay_php_cli | wc -l ) -eq 0 ]; then
 fi
 
 docker-compose -f "${DOCKER_COMPOSE_FILE}" \
-  run --rm cli -f "bin/console" "${@}"
+  run --rm -u "$(id -u):$(id -g)" cli -f "bin/console" "${@}"
