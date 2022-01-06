@@ -11,7 +11,30 @@
   "prettier.useTabs": false,
   "prettier.embeddedLanguageFormatting": "auto",
   "prettier.printWidth": 180,
+  "phpfmt.passes": [
+    "AlignPHPCode",
+    "AlignTypeHint",
+    "AddMissingParentheses",
+    "ConvertOpenTagWithEcho",
+    "DocBlockToComment",
+    "IndentTernaryConditions",
+    "JoinToImplode",
+    "PSR2KeywordsLowerCase",
+    "PSR2LnAfterNamespace",
+    "PSR2ModifierVisibilityStaticOrder",
+    "PSR2SingleEmptyLineAndStripClosingTag",
+    "ReindentSwitchBlocks",
+    "RemoveUseLeadingSlash",
+    "StripExtraCommaInArray",
+    "SpaceBetweenMethods"
+  ],
+  "phpfmt.exclude": ["ReindentComments", "StripNewlineWithinClassBody"],
+  "phpfmt.indent_with_space": 2,
+  "phpfmt.psr2": false,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "kokororin.vscode-phpfmt"
   }
 }
