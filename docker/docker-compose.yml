@@ -43,6 +43,17 @@ services:
     volumes:
       - ../app:/var/www/app
 
+  cli:
+    image: php:8.1.1-cli-alpine
+    container_name: anonrelay_php_cli
+    depends_on:
+      - database
+    working_dir: /var/www/app
+    networks:
+      - internalNetwork
+    volumes:
+      - ../app:/var/www/app
+
   nginx:
     image: nginx:1.21.5-alpine
     container_name: anonrelay_nginx
