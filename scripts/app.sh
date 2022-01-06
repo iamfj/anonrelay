@@ -4,8 +4,8 @@ set -o errexit
 set -o pipefail
 
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && "pwd")"
-readonly DOCKER_COMPOSE_FILE="$(realpath "$SCRIPT_DIR/../docker/docker-compose.yml")"
 readonly ROOT_DIR="$(realpath "$SCRIPT_DIR/../")"
+readonly DOCKER_COMPOSE_FILE="$(realpath "$SCRIPT_DIR/../docker/docker-compose.yml")"
 
 cd $ROOT_DIR
 
