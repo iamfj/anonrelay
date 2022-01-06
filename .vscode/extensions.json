@@ -3,6 +3,7 @@
     "shakram02.bash-beautify",
     "ms-azuretools.vscode-docker",
     "esbenp.prettier-vscode",
-    "kokororin.vscode-phpfmt"
+    "kokororin.vscode-phpfmt",
+    "eamodio.gitlens"
   ]
 }
