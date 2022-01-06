@@ -1,0 +1,60 @@
+version: "3"
+
+networks:
+  internalNetwork:
+    name: internal_network
+
+services:
+  database:
+    image: mysql:8.0.27
+    container_name: anonrelay_database
+    networks:
+      - internalNetwork
+    env_file:
+      - .env
+    ports:
+      - 3306:3306
+    volumes:
+      - ../var/docker/mysql:/var/lib/mysql
+
+  traefik:
+    image: traefik:2.5.6
+    container_name: anonrelay_traefik
+    networks:
+      - internalNetwork
+    command:
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+    ports:
+      - 80:80
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+  
+  php:
+    image: php:8.1.1-fpm-alpine
+    container_name: anonrelay_php
+    depends_on:
+      - database
+    networks:
+      - internalNetwork
+    volumes:
+      - ../app:/var/www/app
+
+  nginx:
+    image: nginx:1.21.5-alpine
+    container_name: anonrelay_nginx
+    depends_on:
+      - traefik
+      - php
+    networks:
+      - internalNetwork
+    volumes:
+      - ../app:/var/www/app
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.sampleApp.rule=Host("anonrelay.localhost")
+      - traefik.http.routers.sampleApp.entrypoints=web
