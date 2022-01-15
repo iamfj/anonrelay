@@ -34,7 +34,11 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
   
   php:
-    image: php:8.1.1-fpm-alpine
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+      target: php-fpm
+    image: anonrelay-php-fpm:latest
     container_name: anonrelay_php
     depends_on:
       - database
@@ -44,13 +48,28 @@ services:
       - ../app:/var/www/app
 
   cli:
-    image: php:8.1.1-cli-alpine
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+      target: php-cli
+    image: anonrelay-php-cli:latest
     container_name: anonrelay_php_cli
     depends_on:
       - database
     working_dir: /var/www/app
     networks:
       - internalNetwork
+    volumes:
+      - ../app:/var/www/app
+
+  composer:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+      target: php-cli-composer
+    image: anonrelay-php-cli-composer:latest
+    container_name: anonrelay_php_cli_composer
+    working_dir: /var/www/app
     volumes:
       - ../app:/var/www/app
 
