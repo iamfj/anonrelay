@@ -16,7 +16,7 @@ N="\033[0;0m"   # Color Neutral
 
 case ${1-:''} in
     start)
-        docker-compose -f "${DOCKER_COMPOSE_FILE}" up -d
+        docker-compose -f "${DOCKER_COMPOSE_FILE}" up -d nginx
     ;;
     stop)
         docker-compose -f "${DOCKER_COMPOSE_FILE}" down
