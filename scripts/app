@@ -23,7 +23,7 @@ case ${1-:''} in
     ;;
     restart)
         docker-compose -f "${DOCKER_COMPOSE_FILE}" down
-        docker-compose -f "${DOCKER_COMPOSE_FILE}" up -d
+        docker-compose -f "${DOCKER_COMPOSE_FILE}" up -d nginx
     ;;
     build)
         docker-compose -f "${DOCKER_COMPOSE_FILE}" build
@@ -39,9 +39,11 @@ case ${1-:''} in
         echo -e "  ${B}${0}${N} [COMMAND]"
         echo -e ""
         echo -e "${Y}Commands:${N}"
-        echo -e "  ${G}start${N} \tStarts the docker development stack with all services"
+        echo -e "  ${G}start${N} \tStarts the visual docker development stack (database, proxy, nginx, php)"
         echo -e "  ${G}stop${N} \t\tStops all services from the docker development stack and removing the containers"
         echo -e "  ${G}restart${N} \tRestarts all services from the docker development stack"
+        echo -e "  ${G}pull${N} \t\tPulls all required docker images from the public repositories"
+        echo -e "  ${G}build${N} \tBuild all internal docker images from source"
         echo -e ""
     ;;
 esac
