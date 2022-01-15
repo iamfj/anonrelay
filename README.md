@@ -27,6 +27,7 @@ Through open source it is guaranteed that data protection is respected when
 processing the e-mails. 
 
 ## Technology and idea
+
 You need a webserver, a domain, a catch all mailbox and a cronjob. Now you 
 host anonrelay on your webserver and configure it with the catch all mailbox. 
 Now you can register new users and create e-mail addresses. Anonrelay, 
