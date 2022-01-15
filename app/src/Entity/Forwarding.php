@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ForwardingRepository;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ForwardingRepository::class)
