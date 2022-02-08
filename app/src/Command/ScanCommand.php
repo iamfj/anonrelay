@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use App\Library\Mailbox\MailboxScanner;
+use Exception;
 use SecIT\ImapBundle\Service\Imap;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -39,7 +40,7 @@ class ScanCommand extends Command {
       // ToDo: Implement further transaction handling
       
       $io->success('You have successfully scanned all inboxes!');
-    } catch (\Exception $e) {
+    } catch (Exception $e) {
       $io->error($e->getMessage());
     }
     

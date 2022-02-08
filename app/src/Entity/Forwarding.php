@@ -15,7 +15,7 @@ class Forwarding {
    * @ORM\Column(type="integer")
    */
   private $id;
-
+  
   public function getId(): ?int {
     return $this->id;
   }
