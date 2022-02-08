@@ -1,2 +1,6 @@
 imap:
-    connections: []
+  connections:
+    main:
+      mailbox: "%env(IMAP_PATH)%"
+      username: "%env(IMAP_USERNAME)%"
+      password: "%env(IMAP_PASSWORD)%"
