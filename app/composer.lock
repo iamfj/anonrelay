@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5f6505d7886bde33a7be42bdeb87a60",
+    "content-hash": "eae0a7cb3ab3d470ee19be4f065810f3",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1512,6 +1512,76 @@
             "time": "2021-12-19T18:06:55+00:00"
         },
         {
+            "name": "php-imap/php-imap",
+            "version": "4.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barbushin/php-imap.git",
+                "reference": "e630d64ccad6c575d25650ca93e793ac1a54eb12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barbushin/php-imap/zipball/e630d64ccad6c575d25650ca93e793ac1a54eb12",
+                "reference": "e630d64ccad6c575d25650ca93e793ac1a54eb12",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "ext-iconv": "*",
+                "ext-imap": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": "^7.2 || ^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.4",
+                "maglnet/composer-require-checker": "^2.0|^3.2",
+                "nikic/php-parser": "^4.3,<4.7|^4.10",
+                "paragonie/hidden-string": "^1.0",
+                "php-parallel-lint/php-parallel-lint": "^1.3",
+                "phpunit/phpunit": "^8.5|^9.5",
+                "povils/phpmnd": "^2.2",
+                "psalm/plugin-phpunit": "^0.10.0|^0.15.1",
+                "roave/security-advisories": "dev-master",
+                "sebastian/phpcpd": "^4.1|^6.0"
+            },
+            "suggest": {
+                "ext-fileinfo": "To facilitate IncomingMailAttachment::getFileInfo() auto-detection"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpImap\\": "src/PhpImap"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Barbushin",
+                    "email": "barbushin@gmail.com",
+                    "homepage": "http://linkedin.com/in/barbushin"
+                }
+            ],
+            "description": "Manage mailboxes, filter/get/delete emails in PHP (supports IMAP/POP3/NNTP)",
+            "homepage": "https://github.com/barbushin/php-imap",
+            "keywords": [
+                "imap",
+                "mail",
+                "mailbox",
+                "php",
+                "pop3",
+                "receive emails"
+            ],
+            "support": {
+                "issues": "https://github.com/barbushin/php-imap/issues",
+                "source": "https://github.com/barbushin/php-imap/tree/4.5.1"
+            },
+            "time": "2022-01-10T21:10:27+00:00"
+        },
+        {
             "name": "psr/cache",
             "version": "2.0.0",
             "source": {
@@ -1707,6 +1777,61 @@
                 "source": "https://github.com/php-fig/log/tree/2.0.0"
             },
             "time": "2021-07-14T16:41:46+00:00"
+        },
+        {
+            "name": "secit-pl/imap-bundle",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/secit-pl/imap-bundle.git",
+                "reference": "e5f8c9713c31297eb92fce7273c055b81d60c85d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/secit-pl/imap-bundle/zipball/e5f8c9713c31297eb92fce7273c055b81d60c85d",
+                "reference": "e5f8c9713c31297eb92fce7273c055b81d60c85d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "php-imap/php-imap": "~2.0|~3.0|~4.0",
+                "symfony/dependency-injection": "~2.8|~3.0|~4.0|~5.0",
+                "symfony/framework-bundle": "~2.8|~3.0|~4.0|~5.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SecIT\\ImapBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tomasz Gemza",
+                    "email": "t.gemza@secit.pl"
+                }
+            ],
+            "description": "PHP-IMAP Symfony integration.",
+            "homepage": "http://secit.pl",
+            "keywords": [
+                "bundle",
+                "imap",
+                "php-imap",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/secit-pl/imap-bundle/issues",
+                "source": "https://github.com/secit-pl/imap-bundle/tree/1.4.0"
+            },
+            "time": "2020-09-07T09:50:00+00:00"
         },
         {
             "name": "symfony/cache",
