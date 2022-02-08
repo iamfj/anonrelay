@@ -109,6 +109,9 @@
     "psr/log": {
         "version": "3.0.0"
     },
+    "roave/security-advisories": {
+        "version": "dev-latest"
+    },
     "secit-pl/imap-bundle": {
         "version": "1.4",
         "recipe": {
