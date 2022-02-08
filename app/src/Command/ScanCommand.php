@@ -10,7 +10,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(
   name: 'anonrelay:scan',
-  description: 'Scan and apply redirection rules to all inboxes',
+  description: 'Scan and apply redirection rules to the configured inbox',
 )]
 class ScanCommand extends Command {
   protected function execute(InputInterface $input, OutputInterface $output): int {
