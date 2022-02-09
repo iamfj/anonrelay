@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use App\Repository\UserRepository;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -58,6 +58,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface {
   }
   
   /**
+   * @deprecated since Symfony 5.3, use getUserIdentifier instead
+   */
+  public function getUsername(): string {
+    return (string)$this->email;
+  }
+  
+  /**
    * @see UserInterface
    */
   public function getRoles(): array {
@@ -88,18 +95,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface {
   }
   
   /**
+   * Returning a salt is only needed, if you are not using a modern
+   * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+   *
+   * @see UserInterface
+   */
+  public function getSalt(): ?string {
+    return null;
+  }
+  
+  /**
    * @see UserInterface
    */
   public function eraseCredentials() {
     // If you store any temporary, sensitive data on the user, clear it here
     // $this->plainPassword = null;
-  }
-  
-  public function getSalt() {
-    // TODO: Implement getSalt() method.
-  }
-  
-  public function getUsername() {
-    // TODO: Implement getUsername() method.
   }
 }
