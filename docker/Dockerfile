@@ -17,3 +17,9 @@ FROM php-cli AS php-cli-composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 ENTRYPOINT [ "/usr/bin/composer" ]
+
+FROM php-cli AS php-cli-debug
+
+RUN apk add autoconf build-base
+RUN pecl install xdebug-3.1.3 \
+ && docker-php-ext-enable xdebug

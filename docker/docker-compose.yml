@@ -62,6 +62,21 @@ services:
     volumes:
       - ../app:/var/www/app
 
+  cli-debug:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+      target: php-cli-debug
+    image: anonrelay-php-cli-debug:latest
+    container_name: anonrelay_php_cli_debug
+    depends_on:
+      - database
+    working_dir: /var/www/app
+    networks:
+      - internalNetwork
+    volumes:
+      - ../app:/var/www/app
+
   composer:
     build:
       context: ../
