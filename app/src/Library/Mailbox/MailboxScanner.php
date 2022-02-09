@@ -2,7 +2,6 @@
 
 namespace App\Library\Mailbox;
 
-use Ds\Set;
 use PhpImap\Mailbox;
 
 class MailboxScanner {
@@ -10,10 +9,10 @@ class MailboxScanner {
   /**
    * @param Mailbox $mailbox
    *
-   * @return Set
+   * @return array
    */
-  public function scan(Mailbox $mailbox): Set {
-    $mails = new Set();
+  public function scan(Mailbox $mailbox): array {
+    $mails = [];
     $mailIds = $mailbox->searchMailbox();
     
     if ($mailIds) {
@@ -22,7 +21,7 @@ class MailboxScanner {
         $toAddresses = array_keys($mail->to);
         $fromAddress = $mail->fromAddress;
         
-        $mails->add(MailboxTransaction::create($mailId, $fromAddress, $toAddresses));
+        $mails[] = MailboxTransaction::create($mailId, $fromAddress, $toAddresses);
       }
     }
     
