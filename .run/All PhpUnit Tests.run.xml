@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="All PhpUnit Tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+    <TestRunner class="App\Tests\Library\Mailbox\MailboxScannerTest" directory="$PROJECT_DIR$/app/tests" file="$PROJECT_DIR$/app/tests/Library/Mailbox/MailboxScannerTest.php" />
+    <method v="2" />
+  </configuration>
+</component>
