@@ -1,11 +1,11 @@
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=iamfj_anonrelay&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=iamfj_anonrelay)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=iamfj_anonrelay&metric=coverage)](https://sonarcloud.io/summary/new_code?id=iamfj_anonrelay)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=iamfj_anonrelay&metric=bugs)](https://sonarcloud.io/summary/new_code?id=iamfj_anonrelay)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=iamfj_anonrelay&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=iamfj_anonrelay)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=iamfj_anonrelay&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=iamfj_anonrelay)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=iamfj_anonrelay&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=iamfj_anonrelay)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=iamfj_anonrelay&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=iamfj_anonrelay)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=iamfj_anonrelay&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=iamfj_anonrelay)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=anonrelay&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=anonrelay)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=anonrelay&metric=coverage)](https://sonarcloud.io/summary/new_code?id=anonrelay)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=anonrelay&metric=bugs)](https://sonarcloud.io/summary/new_code?id=anonrelay)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=anonrelay&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=anonrelay)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=anonrelay&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=anonrelay)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=anonrelay&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=anonrelay)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=anonrelay&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=anonrelay)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=anonrelay&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=anonrelay)
 
 # Anonrelay
 
