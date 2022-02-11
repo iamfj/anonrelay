@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 networks:
   internalNetwork:
@@ -38,7 +38,9 @@ services:
       context: ../
       dockerfile: docker/Dockerfile
       target: php-fpm
-    image: anonrelay-php-fpm:latest
+      labels:
+        org.opencontainers.image.source: https://github.com/iamfj/anonrelay
+    image: ghcr.io/iamfj/anonrelay/php-fpm:latest
     container_name: anonrelay_php
     depends_on:
       - database
@@ -52,7 +54,9 @@ services:
       context: ../
       dockerfile: docker/Dockerfile
       target: php-cli
-    image: anonrelay-php-cli:latest
+      labels:
+        org.opencontainers.image.source: https://github.com/iamfj/anonrelay
+    image: ghcr.io/iamfj/anonrelay/php-cli:latest
     container_name: anonrelay_php_cli
     depends_on:
       - database
@@ -67,7 +71,9 @@ services:
       context: ../
       dockerfile: docker/Dockerfile
       target: php-cli-debug
-    image: anonrelay-php-cli-debug:latest
+      labels:
+        org.opencontainers.image.source: https://github.com/iamfj/anonrelay
+    image: ghcr.io/iamfj/anonrelay/cli-debug:latest
     container_name: anonrelay_php_cli_debug
     depends_on:
       - database
@@ -82,7 +88,9 @@ services:
       context: ../
       dockerfile: docker/Dockerfile
       target: php-cli-composer
-    image: anonrelay-php-cli-composer:latest
+      labels:
+        org.opencontainers.image.source: https://github.com/iamfj/anonrelay
+    image: ghcr.io/iamfj/anonrelay/cli-composer:latest
     container_name: anonrelay_php_cli_composer
     working_dir: /var/www/app
     volumes:
