@@ -1,0 +1,23 @@
+name: Reliability Workflow
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docker/docker-compose.yml'
+      - 'docker/Dockerfile'
+
+jobs:
+  buildAndPublish:
+    name: Build and Publish docker images
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Create empty .env file for docker tools
+        run: touch ./docker/.env
+      - name: Build Docker Images
+        run: docker-compose -f docker/docker-compose.yml build
+      - name: Publish Docker Images
+        run: docker-compose -f docker/docker-compose.yml push
