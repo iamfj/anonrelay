@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Pulling docker images
+        run: docker-compose -f docker/docker-compose.yml pull
       - name: Create empty .env file for docker tools
         run: touch ./docker/.env
       - name: Loading Production Composer Dependency Cache
@@ -34,6 +36,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Pulling docker images
+        run: docker-compose -f docker/docker-compose.yml pull
       - name: Create empty .env file for docker tools
         run: touch ./docker/.env
       - name: Loading Production Composer Dependency Cache
@@ -56,6 +60,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Pulling docker images
+        run: docker-compose -f docker/docker-compose.yml pull
       - name: Create empty .env file for docker tools
         run: touch ./docker/.env
       - name: Loading Development Composer Dependency Cache
