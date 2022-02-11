@@ -1,0 +1,66 @@
+name: Reliability Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  installDevDeps:
+    name: Install Development Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache Composer Development Dependencies
+        id: composer-dev-dependencies
+        uses: actions/cache@v2
+        with:
+          path: app/vendor
+          key: ${{ runner.os }}-${{ hashFiles('app/composer.lock') }}
+      - name: Build Composer Development Dependencies
+        if: steps.composer-dev-dependencies.outputs.cache-hit != 'true'
+        run: ./scripts/composer install
+      - uses: actions/upload-artifact@v2
+        with:
+          name: composer-dev-dependencies
+          path: app/vendor
+
+
+  installProdDeps:
+    name: Install Production Dependencies
+    runs-on: ubuntu-latest
+    env:
+      APP_ENV: prod
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache Composer Development Dependencies
+        id: composer-prod-dependencies
+        uses: actions/cache@v2
+        with:
+          path: app/vendor
+          key: ${{ runner.os }}-${{ hashFiles('app/composer.lock') }}
+      - name: Dump Environment Variables
+        run: ./scripts/composer dump-env prod --empty
+      - name: Build Composer Production Dependencies
+        if: steps.composer-prod-dependencies.outputs.cache-hit != 'true'
+        run: ./scripts/composer install --no-dev --optimize-autoloader
+
+  runPhpUnitTests:
+    name: Run PhpUnit Tests
+    runs-on: ubuntu-latest
+    needs:
+      - installDevDeps
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Loading Dev Dependency Caches
+        uses: actions/cache@v2
+        with:
+          path: app/vendor
+          key: ${{ runner.os }}-${{ hashFiles('app/composer.lock') }}
+      - name: Run PhpUnit Tests
+        run: ./scripts/phpunit
