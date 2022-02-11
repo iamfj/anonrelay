@@ -38,4 +38,12 @@ class MailboxScannerTest extends TestCase {
     
     $this->assertCount(2, $scanResult);
   }
+  
+  /**
+   * ToDo: Please remove this asap!
+   * @return void
+   */
+  public function testDummy(): void {
+    $this->assertTrue(false);
+  }
 }
