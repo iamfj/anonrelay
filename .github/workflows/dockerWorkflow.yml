@@ -4,26 +4,34 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'docker/docker-compose.yml'
-      - 'docker/Dockerfile'
 
 jobs:
   buildAndPublish:
-    name: Build and Publish docker images
+    name: Build and Publish Docker Images
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Verify changed Dockerfiles
+        uses: tj-actions/verify-changed-files@v8.8
+        id: changed-dockerfiles
+        with:
+          files: |
+            docker/docker-compose.yml
+            docker/Dockerfile
       - name: Create empty .env file for docker tools
+        if: steps.changed-dockerfiles.outputs.files_changed == 'true'
         run: touch ./docker/.env
       - name: Docker login
+        if: steps.changed-dockerfiles.outputs.files_changed == 'true'
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ github.token }}
       - name: Build Docker Images
+        if: steps.changed-dockerfiles.outputs.files_changed == 'true'
         run: docker-compose -f docker/docker-compose.yml build
       - name: Publish Docker Images
+        if: steps.changed-dockerfiles.outputs.files_changed == 'true'
         run: docker-compose -f docker/docker-compose.yml push

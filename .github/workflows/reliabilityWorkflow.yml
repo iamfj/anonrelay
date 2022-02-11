@@ -1,12 +1,9 @@
 name: Reliability Workflow
 
 on:
-  push:
-    branches:
-      - main
   workflow_run:
     workflows:
-      - "Docker Workflow"
+      - Docker Workflow
     types:
       - completed
 
