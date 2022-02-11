@@ -13,7 +13,7 @@ services:
     env_file:
       - .env
     ports:
-      - 3306:3306
+      - "3306:3306"
     volumes:
       - ../var/docker/mysql:/var/lib/mysql
 
@@ -28,8 +28,8 @@ services:
       - --providers.docker.exposedbydefault=false
       - --entrypoints.web.address=:80
     ports:
-      - 80:80
-      - 8080:8080
+      - "80:80"
+      - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
   
