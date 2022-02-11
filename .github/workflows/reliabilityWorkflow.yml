@@ -77,6 +77,9 @@ jobs:
       - name: Analyze with SonarCloud
         if: steps.phpunit-coverage.outputs.cache-hit != 'true'
         uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: app
           args: >
