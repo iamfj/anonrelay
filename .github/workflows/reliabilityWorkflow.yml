@@ -83,5 +83,6 @@ jobs:
         with:
           projectBaseDir: app
           args: >
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION_KEY }}
             -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
             -Dsonar.php.coverage.reportPaths=coverage/coverage.xml
