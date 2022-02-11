@@ -49,7 +49,7 @@ jobs:
         run: ./scripts/composer install --no-dev --optimize-autoloader
 
   runPhpUnitTestsWithCoverage:
-    name: Run PhpUnit Tests with Coverage
+    name: Run PhpUnit with Coverage
     runs-on: ubuntu-latest
     needs:
       - installDevDeps
