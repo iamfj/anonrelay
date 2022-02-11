@@ -20,12 +20,16 @@
         </testsuite>
     </testsuites>
 
+    <logging>
+        <junit outputFile="coverage/tests.xml"/>
+    </logging>
+
     <coverage processUncoveredFiles="true">
         <include>
             <directory suffix=".php">src</directory>
         </include>
         <report>
-            <xml outputDirectory="coverage"/>
+            <clover outputFile="coverage/coverage.xml"/>
         </report>
     </coverage>
 
