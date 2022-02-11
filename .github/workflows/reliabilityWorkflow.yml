@@ -25,10 +25,6 @@ jobs:
       - name: Build Composer Development Dependencies
         if: steps.composer-dev-dependencies.outputs.cache-hit != 'true'
         run: ./scripts/composer install
-      - uses: actions/upload-artifact@v2
-        with:
-          name: composer-dev-dependencies
-          path: app/vendor
 
   installProdDeps:
     name: Install Production Dependencies
