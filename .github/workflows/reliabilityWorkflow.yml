@@ -69,19 +69,13 @@ jobs:
         with:
           path: app/vendor
           key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
-      - name: Loading Coverage Cache
-        id: phpunit-coverage
-        uses: actions/cache@v2
-        with:
-          path: app/coverage
-          key: ${{ runner.os }}-${{ hashFiles('**/(src|test)') }}
       - name: Run PhpUnit Tests with Coverage
         if: steps.phpunit-coverage.outputs.cache-hit != 'true'
         run: ./scripts/phpunit
       - name: Run PhpUnit Tests with Coverage
         run: ./scripts/phpunit
       - name: Analyze with SonarCloud
-        if: steps.phpunit-coverage.outputs.cache-hit != 'true'
+        if: always()
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
