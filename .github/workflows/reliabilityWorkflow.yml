@@ -14,12 +14,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Create empty .env file for docker tools
+        run: touch ./docker/.env
       - name: Cache Composer Development Dependencies
         id: composer-dev-dependencies
         uses: actions/cache@v2
         with:
           path: app/vendor
-          key: ${{ runner.os }}-${{ hashFiles('app/composer.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
       - name: Build Composer Development Dependencies
         if: steps.composer-dev-dependencies.outputs.cache-hit != 'true'
         run: ./scripts/composer install
