@@ -27,7 +27,7 @@
             <directory suffix=".php">src</directory>
         </include>
         <report>
-            <crap4j outputFile="coverage/coverage.xml"/>
+            <clover outputFile="coverage/coverage.xml"/>
         </report>
     </coverage>
 
